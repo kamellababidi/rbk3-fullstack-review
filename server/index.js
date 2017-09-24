@@ -8,7 +8,7 @@ var urlencodedParser = bodyparser.urlencoded({ extended: false })
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded())
-var fs = require('fs');
+var GITHUB_API_KEY = '3b0fc71f6e7b6fb4b6235b5e1db52bd56654d8ed';
 //app.use(express.bodyParser());
 app.post('/repos/import',urlencodedParser, function (req, res) {
   // TODO
@@ -16,9 +16,9 @@ app.post('/repos/import',urlencodedParser, function (req, res) {
   url:'https://api.github.com/users/'+req.body.username+'/repos',
   method:'GET',
   headers: {
-    'User-Agent': 'hhhhhhhhh',
+    'User-Agent': 'sdfsdfsd',
     'Accept': 'application/json',
-    'Accept-Charset': 'utf-8'
+    'Accept-Charset': 'utf-8',
   }
  };
   request(options,function(error, response, body){
@@ -43,23 +43,37 @@ app.post('/repos/import',urlencodedParser, function (req, res) {
 
   }
 ///////////////////
-
-  		res.send(JSON.stringify(x.length));
+  		res.send(JSON.stringify('you have :'+x.length));
   })
   //res.send();
 });
+
+
+// app.get('/kamel',function(req,res){
+// 	db.find({}, function(error, collections) {
+//   if (error) {
+//     return handleError(error);
+//   }
+//   	console.log(collections)
+// 	res.send(JSON.stringify(collections.length))
+// })
+// })
+
+/////////////
 app.get('/repos', function (req, res) {
   // TODO
+  //select*
+  //db=Repo   // collection:result from database
   db.find({}, function(error, collections) {
   if (error) {
     return handleError(error);
   }
-  console.log(collections);
+//  console.log(collections);
   var str='';
   for(var i=0;i<collections.length;i++){
   	str=str+collections[i].user_name+":"+collections[i].repos+'<br />';
   }
-  console.log(str)
+  //console.log(str)
   res.send(str);
    // prints "Ian Fleming"
 });
