@@ -14,7 +14,8 @@ class App extends React.Component {
   }
 
   search (term) {
-    console.log(`${term} was searched`);
+  console.log(`${term} was searched`);
+   console.log("hi allllllllll")
     // TODO
   }
 
