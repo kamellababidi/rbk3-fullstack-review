@@ -7,8 +7,7 @@ db.once('open', function() {
   console.log('connnnnected')
 
 });
-var repoSchema 
-var Repo = mongoo= mongoose.Schema({
+var repoSchema = mongoose.Schema({
   // TODO: your schema here!
   user_name:String,
   repos:String
@@ -16,6 +15,7 @@ var Repo = mongoo= mongoose.Schema({
 
   
 });
-se.model('Repo', repoSchema);
+
+var Repo = mongoose.model('Repo', repoSchema);
 
 module.exports = Repo;
