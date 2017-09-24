@@ -43,21 +43,21 @@ app.post('/repos/import',urlencodedParser, function (req, res) {
 
   }
 ///////////////////
-  		res.send(JSON.stringify('you have :'+x.length));
+  		//res.send(JSON.stringify('you have :'+x.length));
   })
   //res.send();
 });
 
 
-// app.get('/kamel',function(req,res){
-// 	db.find({}, function(error, collections) {
-//   if (error) {
-//     return handleError(error);
-//   }
-//   	console.log(collections)
-// 	res.send(JSON.stringify(collections.length))
-// })
-// })
+app.get('/kamel',function(req,res){
+	db.find({}, function(error, collections) {
+  if (error) {
+    return handleError(error);
+  }
+  	console.log(collections)
+	res.send(JSON.stringify(collections.length))
+})
+})
 
 /////////////
 app.get('/repos', function (req, res) {
